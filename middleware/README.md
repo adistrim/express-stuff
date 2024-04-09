@@ -23,3 +23,30 @@ app.post('/health-check', (req, res) => {
 
 app.listen(3000)
 ```
+
+### global catch
+- a global catch is a middleware that catches all errors that are thrown in the application
+- it is useful for catching errors that are not caught by the individual route handlers
+
+```javascript
+const express = require('express');
+
+const app = express();
+
+app.use(express.json());
+
+app.post('/health-check', (req, res) => {
+    const kidneys = req.body.kidneys;
+    const kidneyLen = kidneys.length;
+
+    res.send(`You have `+ kidneyLen + ` kidneys`);
+})
+
+# global catch
+app.use((err, req, res, next) => {
+    res.status(500).send(`Can't process that`);
+})
+
+app.listen(3000)
+```
+![image](image.png)
