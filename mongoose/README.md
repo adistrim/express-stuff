@@ -1,7 +1,7 @@
 ### Example of .env file:
 ```
 jwtPass=1234567
-mongoUrl=mongodb://localhost:27017
+mongoUrl=mongodb+srv://<username>:<password>@clustername.mongodb.net/<dbname>
 ```
 
 ### Message in the postman POST request:
